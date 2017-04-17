@@ -11,6 +11,8 @@ import static environment.Environments.getEnvironment;
  * This is the page object class for the Homepage
  * of the William Hill site this page will
  * represent functionality pertaining to the page
+ * NOTE - I chose not to log in with real user details
+ * for security purpose's.
  **/
 public class HomePage extends AbstractDriver {
 

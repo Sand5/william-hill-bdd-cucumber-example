@@ -7,5 +7,5 @@ Feature: Place a bet for an English premier league game
     Given I am on the William Hill homepage
     When  I select the football option
     And   I select the competitions option
-    And   I select an english premier league club "Hull" and place a "0.05" bet
-    Then  the odds and returns for club "Hull"  offered are displayed correctly
+    And   I select an english premier league club "Bournemouth" and place a "0.05" bet
+    Then  the odds and returns for club "Bournemouth"  offered are displayed correctly

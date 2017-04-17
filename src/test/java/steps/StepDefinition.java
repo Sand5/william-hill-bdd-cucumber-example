@@ -69,6 +69,7 @@ public class StepDefinition {
 
     @After
     public void terminateTest() {
+
         quitAll();
     }
 
