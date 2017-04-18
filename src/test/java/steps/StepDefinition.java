@@ -55,7 +55,6 @@ public class StepDefinition {
     @And("^I select an english premier league club \"([^\"]*)\" and place a \"([^\"]*)\" bet$")
     public void iSelectAnEnglishPremierLeagueClubAndPlaceABet(String team, String amount) throws Throwable {
         footballcompetitionspage
-                .collapseChampionsLeague()
                 .selectEnglishPremierLeague()
                 .selectEnglishPremierLeagueTeam(team)
                 .selectHomeTeamOdds(team)
