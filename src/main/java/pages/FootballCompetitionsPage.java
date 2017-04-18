@@ -119,7 +119,7 @@ public class FootballCompetitionsPage extends AbstractDriver {
 
   // The method select an English premier league dropdown
     public FootballCompetitionsPage selectEnglishPremierLeague() {
-        new WebDriverWait(driver, 60).until(waitForThePageToLoad(driver));
+        new WebDriverWait(driver, 90).until(waitForThePageToLoad(driver));
         WebElement premierleague = driver.findElement(PREMIER_LEAGUE_EXPAND);
         premierleague.click();
         return this;
