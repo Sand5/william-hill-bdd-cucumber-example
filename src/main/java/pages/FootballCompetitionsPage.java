@@ -45,7 +45,7 @@ public class FootballCompetitionsPage extends AbstractDriver {
      * The amount argument taken from the parameter passed in from the feature file.
      **/
     public FootballCompetitionsPage enterBettingAmount(String amount) {
-        new WebDriverWait(driver, 9000).until(waitForThePageToLoad(driver));
+        new WebDriverWait(driver, 30000).until(waitForThePageToLoad(driver));
         WebElement stakeinput = driver.findElement(STAKE_INPUT);
         stakeinput.sendKeys(amount);
         return this;
