@@ -21,11 +21,11 @@ public class FootballCompetitionsPage extends AbstractDriver {
 
     private By STAKE_INPUT = By.xpath("//input[starts-with(@id,'stake-input__')]");
     private By PLACE_BET_BUTTON = By.xpath("//input[@id='place-bet-button']");
-    private By PREMIER_LEAGUE = By.xpath("  //*[@id=\"competitions-tab-content\"]/ul/li[2]/ul/li[5]/div/aside/a");
+    private By PREMIER_LEAGUE_EXPAND = By.xpath("//*[@id=\"competitions-tab-content\"]/ul/li[2]/ul/li[5]/p");
+    private By CHAMP_LEAGUE_COLLAPSE = By.xpath("//*[@id='competitions-tab-content']/ul/li[2]/ul/li[1]/div/aside/a");
     private static By BET_SLIP_PRICE = By.xpath("//*[@class='betslip-selection__price']");
     private static By ESTIMATED_RETURNS = By.xpath("//*[starts-with(@id,'estimated-returns_')]");
     private static By  TOTAL_RETURNS =  By.xpath("//*[@id='total-to-return-price']");
-
 
 
     /**
@@ -45,7 +45,7 @@ public class FootballCompetitionsPage extends AbstractDriver {
      * The amount argument taken from the parameter passed in from the feature file.
      **/
     public FootballCompetitionsPage enterBettingAmount(String amount) {
-        new WebDriverWait(driver, 30000).until(waitForThePageToLoad(driver));
+        new WebDriverWait(driver, 9000).until(waitForThePageToLoad(driver));
         WebElement stakeinput = driver.findElement(STAKE_INPUT);
         stakeinput.sendKeys(amount);
         return this;
@@ -82,7 +82,7 @@ public class FootballCompetitionsPage extends AbstractDriver {
 
     //This FootballCompetitionsPage selects the club team specified at the feature file level
     public FootballCompetitionsPage selectEnglishPremierLeagueTeam(String team) throws InterruptedException {
-        new WebDriverWait(driver, 30, 2000).until(waitForThePageToLoad(driver));
+        new WebDriverWait(driver, 90, 2000).until(waitForThePageToLoad(driver));
         WebElement teamlink = driver.findElement(By.xpath("//*[contains(text(),'" + team + "')]"));
         teamlink.click();
         return this;
@@ -120,9 +120,16 @@ public class FootballCompetitionsPage extends AbstractDriver {
   // The method select an English premier league dropdown
     public FootballCompetitionsPage selectEnglishPremierLeague() {
         new WebDriverWait(driver, 60).until(waitForThePageToLoad(driver));
-        WebElement premierleague = driver.findElement(PREMIER_LEAGUE);
+        WebElement premierleague = driver.findElement(PREMIER_LEAGUE_EXPAND);
         premierleague.click();
         return this;
     }
 
+    //This method collapse the champions league menu
+    public FootballCompetitionsPage collapseChampionsLeague() {
+        new WebDriverWait(driver, 60).until(waitForThePageToLoad(driver));
+        WebElement premierleague = driver.findElement(CHAMP_LEAGUE_COLLAPSE);
+        premierleague.click();
+        return this;
+    }
 }
