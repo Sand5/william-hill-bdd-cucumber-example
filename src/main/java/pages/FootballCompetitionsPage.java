@@ -21,11 +21,13 @@ public class FootballCompetitionsPage extends AbstractDriver {
 
     private By STAKE_INPUT = By.xpath("//input[starts-with(@id,'stake-input__')]");
     private By PLACE_BET_BUTTON = By.xpath("//input[@id='place-bet-button']");
-    private By PREMIER_LEAGUE_EXPAND = By.xpath("//*[@id=\"competitions-tab-content\"]/ul/li[2]/ul/li[5]/p");
-    private By CHAMP_LEAGUE_COLLAPSE = By.xpath("//*[@id='competitions-tab-content']/ul/li[2]/ul/li[1]/div/aside/a");
+    private By PREMIER_LEAGUE_EXPAND = By.xpath("//*[@id='competitions-tab-content']/ul/li[2]/ul/li[5]/p");
     private static By BET_SLIP_PRICE = By.xpath("//*[@class='betslip-selection__price']");
     private static By ESTIMATED_RETURNS = By.xpath("//*[starts-with(@id,'estimated-returns_')]");
     private static By  TOTAL_RETURNS =  By.xpath("//*[@id='total-to-return-price']");
+
+//*[@id="competitions-tab-content"]/ul/li[2]/ul/li[5]/p
+
 
 
     /**
@@ -119,17 +121,10 @@ public class FootballCompetitionsPage extends AbstractDriver {
 
   // The method select an English premier league dropdown
     public FootballCompetitionsPage selectEnglishPremierLeague() {
-        new WebDriverWait(driver, 90).until(waitForThePageToLoad(driver));
+        new WebDriverWait(driver, 99,2).until(waitForThePageToLoad(driver));
         WebElement premierleague = driver.findElement(PREMIER_LEAGUE_EXPAND);
         premierleague.click();
         return this;
     }
 
-    //This method collapse the champions league menu
-    public FootballCompetitionsPage collapseChampionsLeague() {
-        new WebDriverWait(driver, 60).until(waitForThePageToLoad(driver));
-        WebElement premierleague = driver.findElement(CHAMP_LEAGUE_COLLAPSE);
-        premierleague.click();
-        return this;
-    }
 }
