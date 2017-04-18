@@ -21,9 +21,11 @@ public class FootballCompetitionsPage extends AbstractDriver {
 
     private By STAKE_INPUT = By.xpath("//input[starts-with(@id,'stake-input__')]");
     private By PLACE_BET_BUTTON = By.xpath("//input[@id='place-bet-button']");
+    private By PREMIER_LEAGUE = By.xpath("  //*[@id=\"competitions-tab-content\"]/ul/li[2]/ul/li[5]/div/aside/a");
     private static By BET_SLIP_PRICE = By.xpath("//*[@class='betslip-selection__price']");
     private static By ESTIMATED_RETURNS = By.xpath("//*[starts-with(@id,'estimated-returns_')]");
     private static By  TOTAL_RETURNS =  By.xpath("//*[@id='total-to-return-price']");
+
 
 
     /**
@@ -115,5 +117,12 @@ public class FootballCompetitionsPage extends AbstractDriver {
         return totalreturns.getText();
     }
 
+
+    public FootballCompetitionsPage selectEnglishPremierLeague() {
+        new WebDriverWait(driver, 60).until(waitForThePageToLoad(driver));
+        WebElement premierleague = driver.findElement(PREMIER_LEAGUE);
+        premierleague.click();
+        return this;
+    }
 
 }
